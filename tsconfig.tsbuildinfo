@@ -342,7 +342,7 @@
         "signature": "1923cbe22fe3f5005de4192f014b558a88e0fdec16726bb4f94ac76dd1a82c92"
       },
       "/codemill/haripras/jupyterlab-event-order-demo/src/index.tsx": {
-        "version": "6b7e95333b95280f505886bdfd1fe0e6ad300e5329591443ee48654971b99b9d",
+        "version": "dd86563ac2db52e1029f979de34ea1947c49eb0f99d4c47f7633de90f003ffe2",
         "signature": "bc85a93409b2bf645b1f8828900089631995faa9194be513a5daae64f7c3fc31"
       }
     },

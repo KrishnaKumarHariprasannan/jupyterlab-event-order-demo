@@ -61,6 +61,7 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
   handleEvent(event: Event){
     if (event.type == 'contextmenu'){
       console.log("Widget's event handler");
+      // UNCOMMENT THE BELOW LINE TO SEE THE ISSUE
       // event.stopPropagation();
     }
   }
