@@ -1,7 +1,6 @@
 import { IRenderMime } from '@jupyterlab/rendermime-interfaces';
 import { JSONObject } from '@phosphor/coreutils';
 import { Widget } from '@phosphor/widgets';
-import {Message} from '@phosphor/messaging';
 
 import * as React from 'react';
 import * as ReactDOM from "react-dom";
@@ -37,9 +36,11 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
     let data = model.data[this._mimeType] as JSONObject;
     const textContent: string = JSON.stringify(data);
     const Wrapper = <div
+        data-jp-suppress-context-menu
         onContextMenu={(e) => {
           console.log("Mime Renderer's event handler");
         }}
+
     > {textContent} </div>;
 
     return new Promise<void>((resolve, reject) => {
@@ -52,18 +53,6 @@ export class OutputWidget extends Widget implements IRenderMime.IRenderer {
       );
     });
     return Promise.resolve();
-  }
-
-  protected onAfterAttach(msg: Message): void {
-    this.node.addEventListener('contextmenu', this);
-  }
-
-  handleEvent(event: Event){
-    if (event.type == 'contextmenu'){
-      console.log("Widget's event handler");
-      // UNCOMMENT THE BELOW LINE TO SEE THE ISSUE
-      // event.stopPropagation();
-    }
   }
 
   private _mimeType: string;
