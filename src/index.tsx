@@ -1,6 +1,6 @@
 import { IRenderMime } from '@jupyterlab/rendermime-interfaces';
-import { JSONObject } from '@phosphor/coreutils';
-import { Widget } from '@phosphor/widgets';
+import { JSONObject } from '@lumino/coreutils';
+import { Widget } from '@lumino/widgets';
 
 import * as React from 'react';
 import * as ReactDOM from "react-dom";
@@ -70,7 +70,7 @@ export const rendererFactory: IRenderMime.IRendererFactory = {
 /**
  * Extension definition.
  */
-const extension: IRenderMime.IExtension = {
+const extensions: IRenderMime.IExtension | IRenderMime.IExtension[] = [{
   id: 'jupyterlab-event-order-demo:plugin',
   rendererFactory,
   rank: 0,
@@ -88,6 +88,6 @@ const extension: IRenderMime.IExtension = {
     fileTypes: ['my_type'],
     defaultFor: ['my_type']
   }
-};
+}];
 
-export default extension;
+export default extensions;
